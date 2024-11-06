@@ -1,27 +1,29 @@
+import { generate } from "./generate";
+import { decrypt } from "./decrypt";
+import { encrypt } from "./encrypt";
+
 /**
  * Pretty Good Privacy - PGP - 
  */
-const openpgp = require("openpgp");
-const fs = require("fs");
+
+const passphrase = 'super secret stuff';
 
 // Generate Keys
-generate();
+const keys = await generate(passphrase);
 
 // Encrypt
-const publicKeyArmored = '';
-encrypt(publicKeyArmored);
-
+const encryptedMessage = await encrypt(keys.publicKey);
 
 // Decrypt
-const privateKeyArmored = '';
-const passphrase = 'qwerty';
+const decryptedMessage = await decrypt(encryptedMessage, keys.privateKey, passphrase);
 
-decrypt(privateKeyArmored, passphrase);
+console.log('Entschlüsselte Nachricht: ' + `'${decryptedMessage}'`);
+
 
 /** Art von Verschlüsselung
  * - hybride Verschlüsselung
- * - eigentliche Nachricht wird symmetrisch verschlüsselt
- * - verwendeter Schlüssel wird asymmetrisch verschlüsselt
+ * - eigentliche Nachricht wird symmetrisch verschlüsselt (üblich)
+ * - verwendeter Schlüssel wird asymmetrisch verschlüsselt (üblich)
  * - ein symmetrischer Schlüssel (Session Key) wird stets zufällig erzeugt
  */ 
 

@@ -1,12 +1,19 @@
-async function decrypt(privateKeyArmored: string, passphrase: string) {
-    const privateKey = (await openpgp.key.readArmored([privateKeyArmored])).keys[0];
-    await privateKey.decrypt(passphrase);
-  
-    const encryptedData = fs.readFileSync("encrypted-secrets.txt");
-    const decrypted = await openpgp.decrypt({
-      message: await openpgp.message.readArmored(encryptedData),
-      privateKeys: [privateKey],
+import * as openpgp from 'openpgp';
+
+export async function decrypt(msg: string, privateKeyArmored: string, passphrase: string) {
+    const message = await openpgp.readMessage({
+        armoredMessage: msg // parse armored message
     });
-  
-    console.log(decrypted.data);
+
+    const privateKey = await openpgp.decryptKey({
+        privateKey: await openpgp.readPrivateKey({ armoredKey: privateKeyArmored }),
+        passphrase
+    });
+
+    const decrypted = await openpgp.decrypt({
+        message,
+        decryptionKeys: privateKey
+    });
+
+    return decrypted.data;
   }

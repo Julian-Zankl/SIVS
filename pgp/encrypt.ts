@@ -1,9 +1,13 @@
-async function encrypt(publicKeyArmored: string) {
-    const plainData = fs.readFileSync("secrets.txt");
+import * as openpgp from 'openpgp';
+
+export async function encrypt(publicKeyArmored: string) {
+    const publicKey = await openpgp.readKey({ armoredKey: publicKeyArmored });
     const encrypted = await openpgp.encrypt({
-      message: openpgp.message.fromText(plainData),
-      publicKeys: (await openpgp.key.readArmored(publicKeyArmored)).keys,
+      message:  await openpgp.createMessage({text: 'Secret data'}),
+      encryptionKeys: publicKey
     });
-  
-    fs.writeFileSync("encrypted-secrets.txt", encrypted.data);
-  }
+
+    console.log(encrypted);
+    
+    return encrypted;
+}
