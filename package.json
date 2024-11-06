@@ -1,0 +1,24 @@
+{
+  "name": "sivs",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "symmetrical": "ts-node symmetrical/symmetrical.ts",
+    "asymmetrical": "ts-node asymmetrical/asymmetrical.ts",
+    "pgp": "ts-node pgp/pgp.ts"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@openpgp/web-stream-tools": "^0.1.3",
+    "@types/node-forge": "^1.3.11",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.6.3"
+  },
+  "dependencies": {
+    "node-forge": "^1.3.1",
+    "openpgp": "^6.0.0"
+  }
+}
