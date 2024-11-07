@@ -32,5 +32,7 @@ httpsServer.listen(3000, () => {
  */
 
 /** Nutzen von TLS
- * - 
+ * - fundamentales Protokoll für die sichere Datenübertragung im Internet
+ * - sorgt dafür, dass die Kommunikation zwischen einem Client (z.B. Ihrem Browser) und einem Server (z.B. einer Website) verschlüsselt wird
+ * - sorgt dafür, dass diese Kommunikation vor unbefugtem Zugriff geschützt wird
  */
