@@ -10,7 +10,7 @@
     "pgp": "npx tsx pgp/pgp.ts",
     "tls": "npx tsx tls/tls.ts",
     "hash_integrity": "npx tsx hashing/hash_integrity.ts",
-    "hash_salting": "npx tsx hashing/hash_salting.ts"
+    "hash_salting": "npx tsx hashing/salting_peppering.ts"
   },
   "keywords": [],
   "author": "",

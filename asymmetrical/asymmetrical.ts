@@ -26,10 +26,26 @@ console.log('Original:', originalText);
 console.log('Encrypted:', encryptedText);
 console.log('Decrypted:', decryptedText);
 
-/** Funktionsweise */
+/** Funktionsweise - RSA
+ * - basiert auf der mathematischen Schwierigkeit, große Zahlen in ihre Primfaktoren zu zerlegen
+ * - Verfahren nutzt ein Schlüsselpaar:
+ *      Öffentlicher Schlüssel --> kann frei verteilt werden und wird zum Verschlüsseln von Nachrichten verwendet
+ *      Privater Schlüssel --> muss geheim gehalten werden und wird zum Entschlüsseln der Nachrichten verwendet
+ */
 
 
-/**  Potenzielle Angriffsmethoden */
+/** Potenzielle Angriffsmethoden
+ * - Faktorisierung von n --> Ziel ist es, die beiden großen Primzahlen p und q zu finden, aus denen der Modul n besteht
+ * 
+ * - Chosen-Ciphertext-Angriff
+ *      Angreifer kann beliebige Chiffretexte wählen und sich die entsprechenden Klartexte geben lassen
+ *      Durch geschickte Wahl der Chiffretexte kann er Informationen über den privaten Schlüssel gewinnen.
+ */
 
 
-/** Unterschiede zu symmetrischer Verschlüsselung */
+/** Unterschiede zu symmetrischer Verschlüsselung
+ * - öffentlicher und privater Schlüssel
+ * - langsam
+ * - einfache Schlüsselverteilung (Public Key kann verteilt werden)
+ * - Anwendung für digitale Signaturen und Schlüsselaustausch
+ */
