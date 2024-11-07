@@ -20,7 +20,7 @@ const httpsServer = https.createServer({
 }, app) ;
   
 httpsServer.listen(3000, () => { 
-    console.log("HTTP server up and running on port 3000") 
+    console.log("HTTPS server up and running on port 3000") 
 });
 
 /** Befehle
