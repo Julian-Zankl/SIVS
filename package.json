@@ -7,7 +7,10 @@
   "scripts": {
     "symmetrical": "npx tsx symmetrical/symmetrical.ts",
     "asymmetrical": "npx tsx asymmetrical/asymmetrical.ts",
-    "pgp": "npx tsx pgp/pgp.ts"
+    "pgp": "npx tsx pgp/pgp.ts",
+    "tls": "npx tsx tls/tls.ts",
+    "hash_integrity": "npx tsx hashing/hash_integrity.ts",
+    "hash_salting": "npx tsx hashing/hash_salting.ts"
   },
   "keywords": [],
   "author": "",
