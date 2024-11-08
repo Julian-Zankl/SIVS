@@ -1,19 +1,20 @@
 /**
  * Asymmetrischer Verschlüsselungsalgorithmus - RSA
  **/
-import * as forge from 'node-forge';
+import pkg from 'node-forge';
 
-const keyPair = forge.pki.rsa.generateKeyPair({ bits: 2048 });
+const { pki, util } = pkg;
+const keyPair = pki.rsa.generateKeyPair({ bits: 2048 });
 
 function encryptWithPublicKey(text: string): string {
     const publicKey = keyPair.publicKey;
     const encrypted = publicKey.encrypt(text);
-    return forge.util.encode64(encrypted);
+    return util.encode64(encrypted);
 }
 
 function decryptWithPrivateKey(encryptedText: string): string {
     const privateKey = keyPair.privateKey;
-    const encrypted = forge.util.decode64(encryptedText);
+    const encrypted = util.decode64(encryptedText);
     const decrypted = privateKey.decrypt(encrypted);
     return decrypted;
 }
